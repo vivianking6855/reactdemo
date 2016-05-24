@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Two Time Seconds</title>
+    <script type="text/javascript" src="../react/react.js"></script>
+    <script type="text/javascript" src="../react/react-dom.js"></script>
+    <script type="text/javascript" src="../react/browser.min.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/babel">
+    var Timer = React.createClass(
+            {
+                /*初始状态*/
+                getInitialState: function () {
+                    return {secondsElapsed: 0};
+                },
+
+                tick: function () {
+                    this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+                },
+
+                /*组件完成装载*/
+                componentDidMount: function () {
+                    this.interval = setInterval(this.tick, 1000);
+                },
+                /*组件将被卸载   清除定时器*/
+                componentWillUnmount: function () {
+                    clearInterval(this.interval);
+                },
+                /*渲染视图*/
+                render: function () {
+                    return (
+                            < div > Seconds
+                    Elapsed:{
+                        this.state.secondsElapsed
+                    }
+                    </
+                    div >
+                    )
+                    ;
+                }
+            }
+    );
+
+    ReactDOM.render( < Timer / > , document.getElementById('container'));
+</script>
+</body>
+</html>

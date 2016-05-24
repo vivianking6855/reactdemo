@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+    <script type="text/javascript" src="../react/react.js"></script>
+    <script type="text/javascript" src="../react/react-dom.js"></script>
+    <script type="text/javascript" src="../react/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    var HelloMessage = React.createClass(
+            {
+                render: function () {
+                    return <h1 style={{color: '#ff0000', fontSize:'30px'}}> Hello{ this.props.name },ASUS HZ!</h1>;
+                }
+            }
+    );
+    // return <h1> Hello{ this.props.name },ASUS HZ!</h1>;  //test hello
+    // <div>{{_html:'<h1>hello</h1>'}}</div>;      // test _html  not work
+    // return <h1 style={{color: '#ffff00', fontSize:'30px'}}> Hello{ this.props.name },ASUS HZ!</h1>; // test style
+    ReactDOM.render( < HelloMessage name = "React" / > , document.getElementById('example'));
+</script>
+</body>
+</html>

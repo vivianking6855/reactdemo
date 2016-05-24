@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component Community</title>
+    <script type="text/javascript" src="../react/react.js"></script>
+    <script type="text/javascript" src="../react/react-dom.js"></script>
+    <script type="text/javascript" src="../react/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    var Parent = React.createClass(
+            {
+                handleClick: function () {
+                    alert("click");
+                    React.findDOMNode(this.refs.child).focus();
+                },
+                render: function () {
+                    return (
+                            < div onClick = {this.handleClick} color="red"> Parent:
+                                <Child name={this.props.name} ref="child"></Child>
+                            < / div >
+                           );
+                }
+            }
+    );
+
+    var Child = React.createClass({
+        render: function () {
+            return <span> {this.props.name } < / span>;
+    }
+    });
+
+    ReactDOM.render( < Parent name = "React Parent" / > , document.getElementById('example'));
+
+</script>
+</body>
+</html>
+
