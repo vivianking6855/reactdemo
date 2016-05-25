@@ -13,8 +13,7 @@
     var Parent = React.createClass(
             {
                 handleClick: function () {
-                    alert("click");
-                    React.findDOMNode(this.refs.child).focus();
+                    ReactDOM.findDOMNode(this.refs.child).style.color="red";
                 },
                 render: function () {
                     return (
